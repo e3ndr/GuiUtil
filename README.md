@@ -1,6 +1,8 @@
 # GuiUtil
-A small utility library for bukkit.
-
+A small utility library for bukkit.  
+[![](https://jitpack.io/v/e3ndr/GuiUtil.svg)](https://jitpack.io/#e3ndr/GuiUtil)  
+  
+  
 How to use:
 ```java
 GuiItemStack button = new ClickableItemStack(XMaterial.OAK_BUTTON, "Test", 1, new ClickListener() {
