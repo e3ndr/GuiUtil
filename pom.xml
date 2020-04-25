@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>xyz.e3ndr</groupId>
     <artifactId>GuiUtil</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <build>
         <plugins>
@@ -12,40 +12,6 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>templating-maven-plugin</artifactId>
-                <version>1.0.0</version>
-                <executions>
-                    <execution>
-                        <id>filter-src</id>
-                        <goals>
-                            <goal>filter-sources</goal>
-                        </goals>
-                        <configuration>
-                            <sourceDirectory>${basedir}/src/main/resources/</sourceDirectory>
-                            <outputDirectory>${basedir}/target/classes</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.1</version>
-                <configuration>
-                    <shadedArtifactAttached>true</shadedArtifactAttached>
-                    <shadedClassifierName>included</shadedClassifierName>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
