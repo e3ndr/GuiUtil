@@ -15,8 +15,10 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import xyz.e3ndr.GuiUtil.Items.ClickableItemStack;
 import xyz.e3ndr.GuiUtil.Items.GuiItemStack;
 import xyz.e3ndr.GuiUtil.Listeners.BlankListener;
@@ -31,8 +33,8 @@ import xyz.e3ndr.GuiUtil.Listeners.WindowListener;
  */
 @RequiredArgsConstructor
 public class Window {
-    private GuiItemStack[] items;
-    private final String name;
+    protected GuiItemStack[] items;
+    protected @Getter @Setter @NonNull String name;
     private final int size;
     private final JavaPlugin plugin;
     
@@ -67,6 +69,8 @@ public class Window {
      */
     public void open(Player player, WindowListener listener) {
         Inventory bukkit = this.getBukkitInventory();
+        
+        listener.onOpen(player, bukkit);
         
         Bukkit.getPluginManager().registerEvents(new BukkitListener(player, bukkit, listener), this.plugin);
         player.openInventory(bukkit);
